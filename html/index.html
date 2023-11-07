@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDS</title>
+    <!-- Title Icon -->
+    <link rel="shortcut icon" href="../img/r-project.svg" type="image/x-icon">
+    <!-- Normally File -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- Main Css File -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google Fonts -->
+    <!--  -->
+</head>
+
+<body>
+    <main class="container">
+        <h1>Create Read Update Delete Search</h1>
+        <form action="">
+            <input type="text" name="title" placeholder="title">
+            <div id="colaction">
+                <input type="number" name="price" placeholder="price">
+                <input type="number" name="taxes" placeholder="taxes">
+                <input type="number" name="ads" placeholder="ads">
+                <input type="number" name="discount" placeholder="discount">
+                <span>Total:</span>
+            </div>
+            <input type="number" name="count" placeholder="count">
+            <input type="text" name="category" placeholder="category">
+            <button class="create">Create</button>
+        </form>
+        <section>
+            <input type="text" name="Search" placeholder="Search By Title">
+            <div class="ser">
+                <button>Search By Title</button>
+                <button>Search By Category</button>
+            </div>
+            <button>Delete All</button>
+            <table>
+                <thead>
+                    <tr class="tr">
+                        <th>ID</th>
+                        <th>TITLE</th>
+                        <th>PRICE</th>
+                        <th>TAXES</th>
+                        <th>ADS</th>
+                        <th>DISCOUNT</th>
+                        <th>TOTAL</th>
+                        <th>CATEGORY</th>
+                        <th>UPDATE</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
