@@ -47,18 +47,50 @@ btnCreate.onclick = createData;
 
 // data to local
 function createData(){
-    // input data clean
-    if( !parseInt(title.value)&&title.value&&price.value&&taxes.value&&ads.value&&!parseInt(category.value)&&category.value){
-        if(!count.value){
-            dataToarr();
-        }else{
-            // count loop
-            for(i = 0 ; i < count.value;i++){
-                dataToarr();
-            }
-        }
-        clear();
+    const titleValue = title.value.trim();
+    const categoryValue = category.value.trim();
+    const priceValue = Number(price.value);
+    const taxesValue = Number(taxes.value);
+    const adsValue = Number(ads.value);
+    const discountValue = discount.value.trim() === "" ? 0 : Number(discount.value);
+    const countValue = count.value === "" ? null : Number(count.value);
+
+    let validationMessage = "";
+    if(!titleValue){
+        validationMessage = "Title is required.";
+    }else if(!categoryValue){
+        validationMessage = "Category is required.";
+    }else if(price.value.trim() === "" || !Number.isFinite(priceValue) || priceValue <= 0){
+        validationMessage = "Price must be a number greater than 0.";
+    }else if(taxes.value.trim() === "" || !Number.isFinite(taxesValue) || taxesValue < 0){
+        validationMessage = "Taxes must be a non-negative number.";
+    }else if(ads.value.trim() === "" || !Number.isFinite(adsValue) || adsValue < 0){
+        validationMessage = "Ads must be a non-negative number.";
+    }else if(!Number.isFinite(discountValue) || discountValue < 0){
+        validationMessage = "Discount must be a non-negative number.";
+    }else if(countValue !== null && (!Number.isInteger(countValue) || countValue <= 0)){
+        validationMessage = "Count must be a positive integer.";
     }
+
+    if(validationMessage){
+        alert(validationMessage);
+        return;
+    }
+
+    title.value = titleValue;
+    category.value = categoryValue;
+    if(discount.value.trim() === ""){
+        discount.value = "0";
+    }
+
+    if(countValue === null){
+        dataToarr();
+    }else{
+        for(let i = 0; i < countValue; i++){
+            dataToarr();
+        }
+    }
+    clear();
 }
 
 
